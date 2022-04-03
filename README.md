@@ -2,11 +2,24 @@
 
 Full example of Telegram local application.
 
-### Contains:
-- Local Telegram Bot API server based on [aiogram Bot API Server image](https://github.com/aiogram/telegram-bot-api)
-- Telegram Bot based on [aiogram 3.x](https://docs.aiogram.dev/en/dev-3.x/)
-- nginx reverse proxy to serve static files and API server
+## Contains
 
+### Telegram Bot API
+
+Local Telegram Bot API server based
+on [aiogram Bot API Server image](https://github.com/aiogram/telegram-bot-api) \
+There's no public ports and no domain names needed. \
+All connections are made within docker network.
+
+### Echo Bot
+
+Telegram echo-bot based on [aiogram 3.x](https://docs.aiogram.dev/en/dev-3.x/) \
+Bot receives updates from local Telegram Bot API via webhooks. \
+All requests are sending also to local Telegram Bot API.
+
+### Reverse Proxy
+
+nginx reverse proxy is serving static files and API server
 
 ## Installation
 
