@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api:
+    image: nginx:1.21-alpine
+    restart: on-failure
+    depends_on:
+      - api-backend
+    volumes:
+      - telegram-bot-api-data:/var/lib/telegram-bot-api
+      - ./nginx:/etc/nginx/conf.d/
+
+  api-backend:
+    build: https://github.com/aiogram/telegram-bot-api.git
+    restart: on-failure
+    env_file:
+      - .env
+    volumes:
+      - telegram-bot-api-data:/var/lib/telegram-bot-api
+
+  bot:
+    build:
+      context: .
+    stop_signal: SIGINT
+    depends_on:
+      api:
+        condition: service_started
+    env_file:
+      - .env
+
+volumes:
+  telegram-bot-api-data:
+    driver: "local"

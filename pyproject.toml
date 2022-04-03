@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "telegram-local"
+version = "2022.4.1"
+description = "Telegram local API full example"
+authors = [
+    "Oleg A. <t0rr@mail.ru>",
+]
+
+[tool.poetry.dependencies]
+python = "~3.9"
+aiogram = { version = "*", allow-prereleases = true }
+ujson = [
+    { version = "~5.1", platform = "linux" },
+    { version = "~5.1", platform = "darwin" },
+]
+uvloop = [
+    { version = "~0.16", platform = "linux" },
+    { version = "~0.16", platform = "darwin" },
+]
+
+
+[tool.poetry.dev-dependencies]
+black = { version = "*", allow-prereleases = true, extras = ["d"] }
+isort = "*"
+
+[tool.black]
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.tox
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
