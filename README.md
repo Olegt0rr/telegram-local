@@ -1,6 +1,6 @@
 # Telegram Local
 
-Full application example.
+Full example of Telegram local application.
 
 ### Contains:
 - Local Telegram Bot API server based on [aiogram Bot API Server image](https://github.com/aiogram/telegram-bot-api)
