@@ -11,7 +11,7 @@ services:
       - ./nginx:/etc/nginx/conf.d/
 
   api-backend:
-    build: https://github.com/aiogram/telegram-bot-api.git
+    image: aiogram/telegram-bot-api:latest
     restart: on-failure
     env_file:
       - .env
